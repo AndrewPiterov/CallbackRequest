@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Главная";
+}
+
+
+@Html.ActionLink("Все заявки на обратный звонок", "Index", "Callbacks")
+
+
+    <div ng-controller="CallbacksCtrl">
+        <button ng-click="visible = true">Заказать обратный звонок</button>
+
+        <modal></modal>
+    </div>

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CallbackRequest.Web.Models.CallbackModel>
+@{
+    ViewBag.Title = "Список";
+}
+
+<h2>Заявки на "обратный звонок"</h2>
+
+<table>
+    @foreach (var cb in Model)
+    {
+        <tr>
+            <td>@cb.Name</td>
+            <td>@cb.Phone</td>
+            <td>@cb.CreatedAt</td>
+        </tr>
+    }
+</table>
+

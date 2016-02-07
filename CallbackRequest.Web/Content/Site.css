@@ -1,0 +1,96 @@
+﻿modal {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+modal > div.overlay {
+  background: black;
+  position: fixed;
+  opacity: 0.6;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+modal > div.overlay.show {
+  visibility: visible;
+  opacity: 0.6;
+  -webkit-transition: opacity ease 250ms;
+  -moz-transition: opacity ease 250ms;
+  -ms-transition: opacity ease 250ms;
+  -o-transition: opacity ease 250ms;
+  transition: opacity ease 250ms;
+}
+modal > div.overlay.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 250ms, opacity ease 250ms;
+}
+modal > div.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: white;
+  border-radius: 3px;
+  width: 500px;
+  padding: 15px;
+  perspective: 800px;
+  z-index: 3;
+  top: 75px;
+  -webkit-transition: transform ease 250ms, -webkit-transform ease 250ms;
+  -moz-transition: transform ease 250ms, -webkit-transform ease 250ms;
+  -ms-transition: transform ease 250ms, -webkit-transform ease 250ms;
+  -o-transition: transform ease 250ms, -webkit-transform ease 250ms;
+  transition: transform ease 250ms, -webkit-transform ease 250ms;
+  transform: translate3d(0, calc(-100% - 75px), 0);
+  -ms-transform: translate3d(0, calc(-100% - 75px), 0);
+  -webkit-transform: translate3d(0, calc(-100% - 75px), 0);
+  -o-transform: translate3d(0, calc(-100% - 75px), 0);
+  -moz-transform: translate3d(0, calc(-100% - 75px), 0);
+}
+modal > div.content.show {
+  transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+modal > div.content > h2 {
+  margin: 0;
+}
+modal > div.content > * {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+modal > div.content > *:first-child {
+  margin-top: 0;
+}
+body {
+  font-family: Arial;
+  font-size: 14px;
+}
+body > span,
+body > h1 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+span {
+  color: #888888;
+}
+button {
+  width: auto;
+  padding: 7px 22px;
+}
+
+modal a{
+    color: blue;
+    cursor:pointer;
+}

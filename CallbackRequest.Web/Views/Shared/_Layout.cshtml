@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body ng-app="app">
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/directives/modal.js"></script>
+    <script src="~/Scripts/app/controllers/CallbacksCtrl.js"></script>
+    <script type="text/ng-template" id="templates/cbModal">
+        <div class="overlay" ng-class="{ show: visible, hide: !visible }"></div>
+        <div class="content" ng-class="{ show: visible }" ng-transclude>
+            <div ng-show="isBusy">Отправка заявки, дождитесь ответа ...</div>
+
+            <div ng-show="resultMessage">{{resultMessage}}. <a ng-click="close()">Закрыть</a></div>
+
+            <form id="cbForm" name="newCallbackForm" ng-submit="addNewCallback()" ng-show="!isBusy && !resultMessage">
+                <div>
+                    <label for="name">Имя</label>
+                    <input id="name" name="name" ng-model="newCallbackRequest.name" required ng-minlength="5" />
+                    <span ng-show="newCallbackForm.name.$error.required">Имя обязательно</span>
+                    <span ng-show="newCallbackForm.name.$error.minlength">Минимум 5 символов</span>
+                </div>
+                <div>
+                    <label for="phone">Телефон</label>
+                    <input id="phone" name="phone" ng-model="newCallbackRequest.phone" required ng-minlength="5" />
+                    <span ng-show="newCallbackForm.phone.$error.required">Телефон обязателен</span>
+                    <span ng-show="newCallbackForm.phone.$error.minlength">Минимум 5 символов</span>
+                </div>
+                
+                <div>
+                    <input type="submit" value="Заказать" ng-disabled="newCallbackForm.$invalid" />
+                    <button ng-click="close()">Отмена</button>
+                </div>
+            </form>
+
+        </div>
+    </script>
+</body>
+</html>
